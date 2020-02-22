@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+       <MenuBar BorderPane.alignment="CENTER">
+           <Menu mnemonicParsing="false" text="File">
+               <items>
+                   <MenuItem mnemonicParsing="false" text="New" />
+                   <MenuItem mnemonicParsing="false" text="Open" />
+                   <MenuItem mnemonicParsing="false" text="Save" />
+               <SeparatorMenuItem mnemonicParsing="false" />
+                   <MenuItem mnemonicParsing="false" text="Exit" />
+               </items>
+           </Menu>
+           <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                   <MenuItem mnemonicParsing="false" text="Cut" />
+                   <MenuItem mnemonicParsing="false" text="Copy" />
+                   <MenuItem mnemonicParsing="false" text="Paste" />
+                   <MenuItem mnemonicParsing="false" text="Find" />
+               </items>
+           </Menu>
+           <Menu mnemonicParsing="false" text="Format">
+               <items>
+                   <MenuItem mnemonicParsing="false" text="Font" />
+                   <MenuItem mnemonicParsing="false" text="Wrap" />
+               <SeparatorMenuItem mnemonicParsing="false" />
+                   <MenuItem mnemonicParsing="false" text="Align Left" />
+                   <MenuItem mnemonicParsing="false" text="Center" />
+                   <MenuItem mnemonicParsing="false" text="Justify" />
+                   <MenuItem mnemonicParsing="false" text="Align Right" />
+               </items>
+           </Menu>
+           <Menu mnemonicParsing="false" text="View">
+               <items>
+                   <MenuItem mnemonicParsing="false" text="Show Menu Bar" />
+                   <MenuItem mnemonicParsing="false" text="Show Status Bar" />
+               </items>
+           </Menu>
+           <Menu mnemonicParsing="false" text="Help">
+               <items>
+                   <MenuItem mnemonicParsing="false" text="About Text Editor" />
+               </items>
+           </Menu>
+       </MenuBar>
+   </top>
+   <center>
+      <TextArea BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <HBox spacing="8.0" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <Label text="Words: " />
+            <Label layoutX="10.0" layoutY="10.0" text="5" />
+            <Separator orientation="VERTICAL" />
+            <Label layoutX="10.0" layoutY="10.0" text="Letters: " />
+            <Label layoutX="50.0" layoutY="10.0" text="50" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>
