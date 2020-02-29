@@ -37,8 +37,7 @@
            </Menu>
            <Menu mnemonicParsing="false" text="View">
                <items>
-                   <MenuItem mnemonicParsing="false" text="Show Menu Bar" />
-                   <MenuItem mnemonicParsing="false" text="Show Status Bar" />
+                   <MenuItem fx:id="showStatusBar" mnemonicParsing="false" text="Show Status Bar" />
                </items>
            </Menu>
            <Menu mnemonicParsing="false" text="Help">
@@ -52,7 +51,7 @@
       <TextArea BorderPane.alignment="CENTER" />
    </center>
    <bottom>
-      <HBox BorderPane.alignment="CENTER_LEFT">
+      <HBox fx:id="statusBar" BorderPane.alignment="CENTER_LEFT">
          <children>
             <Label text="Words: " />
             <Label layoutX="10.0" layoutY="10.0" text="5" />
