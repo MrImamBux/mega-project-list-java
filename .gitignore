@@ -1,2 +1,5 @@
 .idea
 *.iml
+**/out
+**/.DS_Store
+**/target

@@ -10,11 +10,10 @@ import java.io.IOException;
 
 public class App extends Application {
 
-    private static Scene scene;
-
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("parent"));
+        Scene scene = new Scene(loadFXML("parent"));
+        stage.setTitle("Text Editor");
         stage.setScene(scene);
         stage.show();
     }
