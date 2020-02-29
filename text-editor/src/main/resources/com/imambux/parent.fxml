@@ -18,10 +18,10 @@
            </Menu>
            <Menu mnemonicParsing="false" text="Edit">
                <items>
-                   <MenuItem mnemonicParsing="false" text="Cut" />
-                   <MenuItem mnemonicParsing="false" text="Copy" />
-                   <MenuItem mnemonicParsing="false" text="Paste" />
-                   <MenuItem mnemonicParsing="false" text="Find" />
+                   <MenuItem fx:id="editCut" mnemonicParsing="false" text="Cut" />
+                   <MenuItem fx:id="editCopy" mnemonicParsing="false" text="Copy" />
+                   <MenuItem fx:id="editPaste" mnemonicParsing="false" text="Paste" />
+                   <MenuItem fx:id="editFind" mnemonicParsing="false" text="Find" />
                </items>
            </Menu>
            <Menu mnemonicParsing="false" text="Format">
@@ -48,7 +48,7 @@
        </MenuBar>
    </top>
    <center>
-      <TextArea BorderPane.alignment="CENTER" />
+      <TextArea fx:id="textArea" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
       <HBox fx:id="statusBar" BorderPane.alignment="CENTER_LEFT">
