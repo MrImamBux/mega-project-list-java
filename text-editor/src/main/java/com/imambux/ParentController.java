@@ -28,8 +28,8 @@ public class ParentController implements Initializable {
     public Label statusBarWordsCount;
 
     @Override public void initialize(URL url, ResourceBundle resourceBundle) {
-        initViewEvents();
-        initEditEvents();
+        initViewMenuEvents();
+        initEditMenuEvents();
         initStatusBarEvents();
     }
 
@@ -45,7 +45,7 @@ public class ParentController implements Initializable {
         });
     }
 
-    private void initEditEvents() {
+    private void initEditMenuEvents() {
         editCut.setOnAction(event -> {
             textArea.cut();
         });
@@ -85,7 +85,7 @@ public class ParentController implements Initializable {
         });
     }
 
-    private void initViewEvents() {
+    private void initViewMenuEvents() {
         showStatusBar.setOnAction(event -> {
             if (statusBar.isVisible()) {
                 statusBar.setVisible(false);

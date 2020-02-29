@@ -24,17 +24,6 @@
                    <MenuItem fx:id="editFind" mnemonicParsing="false" text="Find" />
                </items>
            </Menu>
-           <Menu mnemonicParsing="false" text="Format">
-               <items>
-                   <MenuItem mnemonicParsing="false" text="Font" />
-                   <MenuItem mnemonicParsing="false" text="Wrap" />
-                   <SeparatorMenuItem mnemonicParsing="false" />
-                   <MenuItem mnemonicParsing="false" text="Align Left" />
-                   <MenuItem mnemonicParsing="false" text="Align Center" />
-                   <MenuItem mnemonicParsing="false" text="Align Right" />
-                   <MenuItem mnemonicParsing="false" text="Justify" />
-               </items>
-           </Menu>
            <Menu mnemonicParsing="false" text="View">
                <items>
                    <MenuItem fx:id="showStatusBar" mnemonicParsing="false" text="Show Status Bar" />
