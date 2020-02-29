@@ -12,10 +12,16 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        initControllers(stage);
+
         Scene scene = new Scene(loadFXML("parent"));
         stage.setTitle("Text Editor");
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void initControllers(Stage stage) {
+        ParentController.stage = stage;
     }
 
     private static Parent loadFXML(String fxml) throws IOException {

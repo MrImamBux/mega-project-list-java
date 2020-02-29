@@ -1,5 +1,12 @@
 package com.imambux;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -11,8 +18,12 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.HBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class ParentController implements Initializable {
+
+    public static Stage stage;
 
     public MenuItem showStatusBar;
     public HBox statusBar;
@@ -27,10 +38,55 @@ public class ParentController implements Initializable {
     public Label statusBarTotalCharacters;
     public Label statusBarWordsCount;
 
+    public MenuItem fileOpen;
+    public MenuItem fileNew;
+    public MenuItem fileSave;
+    public MenuItem fileExit;
+
     @Override public void initialize(URL url, ResourceBundle resourceBundle) {
+        initFileMenuEvents();
         initViewMenuEvents();
         initEditMenuEvents();
         initStatusBarEvents();
+    }
+
+    private void initFileMenuEvents() {
+        fileNew.setOnAction(event -> {
+            stage.setTitle("Text Editor");
+            textArea.clear();
+        });
+        fileOpen.setOnAction(event -> {
+            FileChooser fileOpen = new FileChooser();
+            fileOpen.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("TXT files", "*.txt"),
+                new FileChooser.ExtensionFilter("CSV files", "*.csv")
+            );
+            File selectedFile = fileOpen.showOpenDialog(stage);
+            try {
+                stage.setTitle(String.format("Text Editor - %s (%s)", selectedFile.getName(), selectedFile.getAbsolutePath()));
+                BufferedReader fileReader = new BufferedReader(new FileReader(selectedFile));
+                fileReader.lines().forEach(line -> textArea.appendText(String.format("%s\n", line)));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+        fileSave.setOnAction(event -> {
+            FileChooser fileSave = new FileChooser();
+            fileSave.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("TXT files", "*.txt"),
+                new FileChooser.ExtensionFilter("CSV files", "*.csv")
+            );
+            File result = fileSave.showSaveDialog(stage);
+            try {
+                PrintWriter writer = new PrintWriter(new FileWriter(result));
+                writer.print(textArea.getText());
+                writer.flush();
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        fileExit.setOnAction(event -> stage.close());
     }
 
     private void initStatusBarEvents() {
@@ -40,7 +96,7 @@ public class ParentController implements Initializable {
         );
         statusBarWordsCount.setText("0");
         textArea.textProperty().addListener((observable, oldValue, newValue) -> {
-            int totalWords = newValue.split("[\\s\\n]+").length;
+            int totalWords = textArea.getLength() == 0 ? 0 : newValue.split("[\\s\\n]+").length;
             statusBarWordsCount.setText(String.valueOf(totalWords));
         });
     }
