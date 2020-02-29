@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextInputDialog;
@@ -23,9 +24,25 @@ public class ParentController implements Initializable {
     public MenuItem editPaste;
     public MenuItem editFind;
 
+    public Label statusBarTotalCharacters;
+    public Label statusBarWordsCount;
+
     @Override public void initialize(URL url, ResourceBundle resourceBundle) {
         initViewEvents();
         initEditEvents();
+        initStatusBarEvents();
+    }
+
+    private void initStatusBarEvents() {
+        statusBarTotalCharacters.setText("0");
+        textArea.lengthProperty().addListener(
+            (observable, oldValue, newValue) -> statusBarTotalCharacters.setText(String.valueOf(newValue))
+        );
+        statusBarWordsCount.setText("0");
+        textArea.textProperty().addListener((observable, oldValue, newValue) -> {
+            int totalWords = newValue.split("[\\s\\n]+").length;
+            statusBarWordsCount.setText(String.valueOf(totalWords));
+        });
     }
 
     private void initEditEvents() {

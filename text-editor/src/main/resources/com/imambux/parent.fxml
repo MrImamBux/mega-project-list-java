@@ -53,11 +53,11 @@
    <bottom>
       <HBox fx:id="statusBar" BorderPane.alignment="CENTER_LEFT">
          <children>
-            <Label text="Words: " />
-            <Label layoutX="10.0" layoutY="10.0" text="5" />
+            <Label layoutX="10.0" layoutY="10.0" text="Total Characters: " />
+            <Label fx:id="statusBarTotalCharacters" layoutX="50.0" layoutY="10.0" />
             <Separator orientation="VERTICAL" />
-            <Label layoutX="10.0" layoutY="10.0" text="Letters: " />
-            <Label layoutX="50.0" layoutY="10.0" text="50" />
+            <Label text="Total Words: " />
+            <Label fx:id="statusBarWordsCount" layoutX="10.0" layoutY="10.0" />
          </children>
          <BorderPane.margin>
             <Insets />
