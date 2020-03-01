@@ -5,7 +5,7 @@ import java.io.File;
 public class FileValidator {
 
     public static boolean isValid(File file) {
-        return file.exists() && file.isFile() && file.getName().endsWith(".txt");
+        return file.exists() && file.isFile() && (file.getName().endsWith(".yaml") || file.getName().endsWith(".yml"));
     }
 
 }
