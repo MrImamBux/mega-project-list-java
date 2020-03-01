@@ -20,9 +20,10 @@ public class RSSFeedCreator {
                 break;
             }
             File file = new File(fileAbsolutePath);
+
+            out.println("Validating...");
             if (FileValidator.isValid(file)) {
                 if (RSSValidator.isFormatValid(file)) {
-
                 } else {
                     out.println("===================================================");
                     out.println();
@@ -55,7 +56,7 @@ public class RSSFeedCreator {
                     out.println("===================================================\n");
                 }
             } else {
-                out.println("Sorry invalid file path.");
+                out.println("Sorry invalid YAML/YML file path.");
             }
             out.print("\n\n\n");
         }
